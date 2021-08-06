@@ -1,0 +1,27 @@
+
+{% extends "app_five/base.html" %}
+{% block body_block %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<div class="jumbotron">
+
+{% if registered %}
+
+<h2>Thanks For filling Up the registration form</h2>
+
+{% else %}
+
+<h2 style="background-color:red;">Please Fill the Registration Form No.2</h2>
+<form enctype="multipart/form-data" method="post"> {% csrf_token %}
+
+  {{ userform.as_p }}
+  {{ profileform.as_p }}
+    <div class="col-12" align="center">
+      <input type="submit" class="btn btn-primary" name = "" value="Register">
+    </div>
+</form>
+{% endif %}
+
+</div>
+{% endblock %}
